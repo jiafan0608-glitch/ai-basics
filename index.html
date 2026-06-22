@@ -14,252 +14,167 @@
       --text: #e0e0f0;
       --text-muted: #888aaa;
       --accent: #00d4ff;
+      --green: #00e676;
+      --red: #ff5252;
+      --yellow: #ffd740;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
 
-    body {
-      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+    /* HEADER */
+    header { position: relative; text-align: center; padding: 80px 20px 60px; overflow: hidden; }
+    header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,.35) 0%, transparent 70%); pointer-events: none; }
+    .badge { display: inline-block; background: rgba(108,99,255,.2); border: 1px solid rgba(108,99,255,.5); color: #a89fff; font-size: 13px; padding: 4px 14px; border-radius: 20px; margin-bottom: 18px; letter-spacing: 1px; }
+    header h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; background: linear-gradient(135deg, #fff 30%, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; }
+    header p { font-size: 1.1rem; color: var(--text-muted); max-width: 560px; margin: 0 auto; }
 
-    /* ── HEADER ── */
-    header {
-      position: relative;
-      text-align: center;
-      padding: 80px 20px 60px;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,.35) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .badge {
-      display: inline-block;
-      background: rgba(108,99,255,.2);
-      border: 1px solid rgba(108,99,255,.5);
-      color: #a89fff;
-      font-size: 13px;
-      padding: 4px 14px;
-      border-radius: 20px;
-      margin-bottom: 18px;
-      letter-spacing: 1px;
-    }
-    header h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, #fff 30%, var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 16px;
-    }
-    header p {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 560px;
-      margin: 0 auto;
-    }
+    /* NAV */
+    nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 16px 20px; background: rgba(26,26,46,.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--card-border); }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; padding: 6px 16px; border-radius: 20px; transition: all .25s; }
+    nav a:hover { background: rgba(108,99,255,.2); color: #fff; }
 
-    /* ── NAV ── */
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 20px;
-      background: rgba(26,26,46,.8);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--card-border);
-    }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 14px;
-      padding: 6px 16px;
-      border-radius: 20px;
-      transition: all .25s;
-    }
-    nav a:hover {
-      background: rgba(108,99,255,.2);
-      color: #fff;
-    }
+    /* MAIN */
+    main { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+    section { margin-bottom: 80px; }
 
-    /* ── MAIN ── */
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
+    /* SECTION TITLE */
+    .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--card-border); }
 
-    /* ── SECTION TITLE ── */
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--card-border);
-    }
-
-    /* ── GRID ── */
+    /* GRIDS */
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
 
-    /* ── CARD ── */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 28px;
-      transition: transform .25s, box-shadow .25s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(108,99,255,.2);
-    }
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 14px;
-    }
-    .card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    .card p {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-    .card .tag {
-      display: inline-block;
-      margin-top: 14px;
-      font-size: 12px;
-      background: rgba(0,212,255,.1);
-      color: var(--accent);
-      border: 1px solid rgba(0,212,255,.3);
-      padding: 3px 10px;
-      border-radius: 12px;
-    }
+    /* CARD */
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 28px; transition: transform .25s, box-shadow .25s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(108,99,255,.2); }
+    .card-icon { font-size: 2rem; margin-bottom: 14px; }
+    .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+    .card p { font-size: 0.92rem; color: var(--text-muted); }
+    .card .tag { display: inline-block; margin-top: 14px; font-size: 12px; background: rgba(0,212,255,.1); color: var(--accent); border: 1px solid rgba(0,212,255,.3); padding: 3px 10px; border-radius: 12px; }
 
-    /* ── TIMELINE ── */
+    /* HIGHLIGHT */
+    .highlight { background: linear-gradient(135deg, rgba(108,99,255,.15), rgba(0,212,255,.08)); border: 1px solid rgba(108,99,255,.3); border-radius: 14px; padding: 24px 28px; margin: 24px 0; }
+    .highlight h4 { color: var(--accent); margin-bottom: 8px; font-size: 1rem; }
+    .highlight p { font-size: 0.92rem; color: var(--text-muted); }
+
+    /* TIMELINE */
     .timeline { position: relative; padding-left: 30px; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px; top: 0; bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--primary), var(--accent));
-    }
-    .tl-item {
-      position: relative;
-      margin-bottom: 32px;
-    }
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -26px; top: 6px;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-      border: 2px solid var(--accent);
-    }
-    .tl-year {
-      font-size: 12px;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--primary), var(--accent)); }
+    .tl-item { position: relative; margin-bottom: 32px; }
+    .tl-item::before { content: ''; position: absolute; left: -26px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 2px solid var(--accent); }
+    .tl-year { font-size: 12px; color: var(--accent); font-weight: 600; letter-spacing: 1px; margin-bottom: 4px; }
     .tl-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .tl-item p  { font-size: 0.88rem; color: var(--text-muted); }
+    .tl-item p { font-size: 0.88rem; color: var(--text-muted); }
 
-    /* ── COMPARISON TABLE ── */
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.92rem;
-    }
-    .compare-table th {
-      background: rgba(108,99,255,.2);
-      color: #a89fff;
-      padding: 14px 20px;
-      text-align: left;
-      font-weight: 600;
-    }
-    .compare-table td {
-      padding: 13px 20px;
-      border-bottom: 1px solid var(--card-border);
-      color: var(--text-muted);
-    }
+    /* TABLE */
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .compare-table th { background: rgba(108,99,255,.2); color: #a89fff; padding: 14px 20px; text-align: left; font-weight: 600; }
+    .compare-table td { padding: 13px 20px; border-bottom: 1px solid var(--card-border); color: var(--text-muted); }
     .compare-table tr:last-child td { border-bottom: none; }
     .compare-table tr:hover td { background: rgba(255,255,255,.03); }
     .compare-table td:first-child { color: var(--text); font-weight: 600; }
 
-    /* ── HIGHLIGHT BOX ── */
-    .highlight {
-      background: linear-gradient(135deg, rgba(108,99,255,.15), rgba(0,212,255,.08));
-      border: 1px solid rgba(108,99,255,.3);
-      border-radius: 14px;
-      padding: 24px 28px;
-      margin: 24px 0;
-    }
-    .highlight h4 {
-      color: var(--accent);
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-    .highlight p { font-size: 0.92rem; color: var(--text-muted); }
+    /* ═══════════════════════════════════
+       GAME STYLES
+    ═══════════════════════════════════ */
 
-    /* ── SECTION SPACING ── */
-    section { margin-bottom: 80px; }
+    .games-intro { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 0.95rem; }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-muted);
-      font-size: 13px;
-      border-top: 1px solid var(--card-border);
-    }
+    /* ── QUIZ GAME ── */
+    .quiz-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 36px; max-width: 700px; margin: 0 auto 40px; }
+    .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .quiz-progress-text { font-size: 13px; color: var(--text-muted); }
+    .quiz-score-badge { background: rgba(0,212,255,.15); border: 1px solid rgba(0,212,255,.3); color: var(--accent); padding: 4px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+    .quiz-progress-bar { height: 4px; background: var(--card-border); border-radius: 4px; margin-bottom: 28px; overflow: hidden; }
+    .quiz-progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 4px; transition: width .4s ease; }
+    .quiz-question { font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 24px; line-height: 1.6; }
+    .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+    .quiz-option { background: rgba(255,255,255,.04); border: 1px solid var(--card-border); border-radius: 12px; padding: 14px 18px; cursor: pointer; transition: all .2s; font-size: 0.95rem; color: var(--text); text-align: left; }
+    .quiz-option:hover:not(:disabled) { border-color: var(--primary); background: rgba(108,99,255,.1); transform: translateX(4px); }
+    .quiz-option.correct { border-color: var(--green); background: rgba(0,230,118,.1); color: var(--green); }
+    .quiz-option.wrong { border-color: var(--red); background: rgba(255,82,82,.1); color: var(--red); }
+    .quiz-option:disabled { cursor: default; }
+    .quiz-feedback { margin-top: 20px; padding: 14px 18px; border-radius: 12px; font-size: 0.9rem; line-height: 1.5; display: none; }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.correct { background: rgba(0,230,118,.1); border: 1px solid rgba(0,230,118,.3); color: #a5f3c0; }
+    .quiz-feedback.wrong { background: rgba(255,82,82,.1); border: 1px solid rgba(255,82,82,.3); color: #ffb3b3; }
+    .quiz-next-btn { margin-top: 20px; background: linear-gradient(135deg, var(--primary), #8b85ff); border: none; color: #fff; padding: 12px 28px; border-radius: 12px; cursor: pointer; font-size: 0.95rem; font-weight: 600; display: none; transition: opacity .2s; }
+    .quiz-next-btn:hover { opacity: .85; }
+    .quiz-next-btn.show { display: inline-block; }
+    .quiz-result { text-align: center; padding: 20px 0; }
+    .quiz-result .big-score { font-size: 4rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .quiz-result p { color: var(--text-muted); margin: 10px 0 24px; }
+    .quiz-restart-btn { background: linear-gradient(135deg, var(--primary), #8b85ff); border: none; color: #fff; padding: 12px 32px; border-radius: 12px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: opacity .2s; }
+    .quiz-restart-btn:hover { opacity: .85; }
 
-    /* ── SCROLL ANIMATION ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .5s, transform .5s;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
+    /* ── NEURAL NETWORK GAME ── */
+    .nn-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 36px; max-width: 800px; margin: 0 auto 40px; }
+    .nn-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .nn-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px; }
+    .nn-controls { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+    .nn-input-group { display: flex; flex-direction: column; gap: 6px; }
+    .nn-input-group label { font-size: 12px; color: var(--text-muted); }
+    .nn-slider { width: 160px; accent-color: var(--primary); }
+    .nn-canvas-wrap { position: relative; }
+    canvas#nnCanvas { width: 100%; border-radius: 12px; background: #0d0d1f; display: block; }
+    .nn-result { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .nn-result-item { background: rgba(255,255,255,.04); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px 18px; font-size: 0.88rem; }
+    .nn-result-item span { color: var(--accent); font-weight: 700; }
+    .nn-run-btn { margin-top: 20px; background: linear-gradient(135deg, var(--primary), #8b85ff); border: none; color: #fff; padding: 10px 24px; border-radius: 10px; cursor: pointer; font-size: 0.92rem; font-weight: 600; transition: opacity .2s; }
+    .nn-run-btn:hover { opacity: .85; }
+
+    /* ── CLASSIFICATION GAME ── */
+    .cls-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 36px; max-width: 700px; margin: 0 auto 40px; }
+    .cls-question { font-size: 1.05rem; font-weight: 600; margin-bottom: 20px; color: #fff; }
+    .cls-image-area { width: 100%; height: 160px; border-radius: 14px; background: linear-gradient(135deg, #1e1e3a, #2a2a4a); display: flex; align-items: center; justify-content: center; font-size: 5rem; margin-bottom: 20px; border: 1px solid var(--card-border); transition: all .3s; }
+    .cls-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cls-btn { flex: 1; min-width: 120px; background: rgba(255,255,255,.05); border: 1px solid var(--card-border); color: var(--text); padding: 12px 18px; border-radius: 12px; cursor: pointer; font-size: 0.92rem; transition: all .2s; }
+    .cls-btn:hover:not(:disabled) { border-color: var(--accent); background: rgba(0,212,255,.1); transform: scale(1.02); }
+    .cls-btn.correct-answer { border-color: var(--green); background: rgba(0,230,118,.15); color: var(--green); }
+    .cls-btn.wrong-answer { border-color: var(--red); background: rgba(255,82,82,.15); color: var(--red); }
+    .cls-feedback { margin-top: 16px; font-size: 0.9rem; min-height: 22px; }
+    .cls-stats { display: flex; gap: 20px; margin-top: 20px; }
+    .cls-stat { background: rgba(255,255,255,.04); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px 20px; font-size: 0.88rem; flex: 1; text-align: center; }
+    .cls-stat .num { font-size: 1.5rem; font-weight: 700; color: var(--accent); display: block; }
+
+    /* ── SORTING GAME ── */
+    .sort-container { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 36px; max-width: 800px; margin: 0 auto 40px; }
+    .sort-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px; }
+    .sort-board { display: flex; gap: 20px; flex-wrap: wrap; }
+    .sort-column { flex: 1; min-width: 160px; }
+    .sort-column-title { font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 10px; margin-bottom: 10px; text-align: center; }
+    .sort-column-title.ml { background: rgba(108,99,255,.2); color: #a89fff; border: 1px solid rgba(108,99,255,.3); }
+    .sort-column-title.dl { background: rgba(0,212,255,.15); color: var(--accent); border: 1px solid rgba(0,212,255,.3); }
+    .sort-column-title.nlp { background: rgba(0,230,118,.1); color: var(--green); border: 1px solid rgba(0,230,118,.3); }
+    .sort-drop-zone { min-height: 120px; border: 2px dashed var(--card-border); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px; transition: border-color .2s; }
+    .sort-drop-zone.drag-over { border-color: var(--primary); background: rgba(108,99,255,.05); }
+    .sort-item { background: rgba(255,255,255,.06); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px 14px; font-size: 0.85rem; cursor: grab; transition: all .2s; user-select: none; }
+    .sort-item:hover { border-color: var(--primary); transform: scale(1.02); }
+    .sort-item:active { cursor: grabbing; }
+    .sort-item.placed-correct { border-color: var(--green); background: rgba(0,230,118,.1); color: var(--green); }
+    .sort-item.placed-wrong { border-color: var(--red); background: rgba(255,82,82,.1); color: var(--red); }
+    .sort-unplaced { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,.02); border: 1px solid var(--card-border); border-radius: 12px; min-height: 60px; }
+    .sort-check-btn { background: linear-gradient(135deg, var(--primary), #8b85ff); border: none; color: #fff; padding: 10px 24px; border-radius: 10px; cursor: pointer; font-size: 0.92rem; font-weight: 600; margin-top: 16px; transition: opacity .2s; }
+    .sort-check-btn:hover { opacity: .85; }
+    .sort-result { margin-top: 14px; font-size: 0.9rem; }
+
+    /* FADE IN */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s, transform .5s; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--card-border); }
   </style>
 </head>
 <body>
 
-<!-- ══ HEADER ══ -->
 <header>
   <div class="badge">🤖 入门指南</div>
   <h1>AI 基础知识</h1>
   <p>从零开始了解人工智能——核心概念、发展历程、主流技术与实际应用</p>
 </header>
 
-<!-- ══ NAV ══ -->
 <nav>
   <a href="#what-is-ai">什么是 AI</a>
   <a href="#types">AI 类型</a>
@@ -267,11 +182,12 @@
   <a href="#history">发展历程</a>
   <a href="#technologies">主流技术</a>
   <a href="#applications">应用场景</a>
+  <a href="#games">🎮 互动游戏</a>
 </nav>
 
 <main>
 
-  <!-- ══ WHAT IS AI ══ -->
+  <!-- WHAT IS AI -->
   <section id="what-is-ai">
     <h2 class="section-title">🤖 什么是人工智能</h2>
     <div class="highlight">
@@ -279,227 +195,182 @@
       <p>人工智能（Artificial Intelligence，AI）是让计算机模拟人类智能行为的技术，包括学习、推理、感知、理解语言和解决问题等能力。</p>
     </div>
     <div class="grid-3 fade-in">
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <h3>机器学习 (ML)</h3>
-        <p>让机器从数据中自动"学习"规律，无需明确编程每一条规则。</p>
-        <span class="tag">核心方法</span>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔍</div>
-        <h3>深度学习 (DL)</h3>
-        <p>使用多层神经网络处理复杂数据，是图像识别、语音识别的基础。</p>
-        <span class="tag">核心方法</span>
-      </div>
-      <div class="card">
-        <div class="card-icon">💬</div>
-        <h3>自然语言处理 (NLP)</h3>
-        <p>让机器理解和生成人类语言，ChatGPT 就是 NLP 的典型应用。</p>
-        <span class="tag">核心方法</span>
-      </div>
+      <div class="card"><div class="card-icon">🧠</div><h3>机器学习 (ML)</h3><p>让机器从数据中自动"学习"规律，无需明确编程每一条规则。</p><span class="tag">核心方法</span></div>
+      <div class="card"><div class="card-icon">🔍</div><h3>深度学习 (DL)</h3><p>使用多层神经网络处理复杂数据，是图像识别、语音识别的基础。</p><span class="tag">核心方法</span></div>
+      <div class="card"><div class="card-icon">💬</div><h3>自然语言处理 (NLP)</h3><p>让机器理解和生成人类语言，ChatGPT 就是 NLP 的典型应用。</p><span class="tag">核心方法</span></div>
     </div>
   </section>
 
-  <!-- ══ TYPES ══ -->
+  <!-- TYPES -->
   <section id="types">
     <h2 class="section-title">📊 AI 的三大类型</h2>
     <div class="grid-3 fade-in">
-      <div class="card">
-        <div class="card-icon">🔧</div>
-        <h3>弱人工智能（ANI）</h3>
-        <p>只能完成<strong style="color:#fff">特定任务</strong>的 AI，是目前所有商业 AI 的类型。例如人脸识别、推荐算法、语音助手。</p>
-        <span class="tag">现阶段</span>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <h3>通用人工智能（AGI）</h3>
-        <p>拥有与人类相当的<strong style="color:#fff">综合智能</strong>，能够胜任任何认知任务。目前仍是研究目标，尚未实现。</p>
-        <span class="tag">未来目标</span>
-      </div>
-      <div class="card">
-        <div class="card-icon">🚀</div>
-        <h3>超级人工智能（ASI）</h3>
-        <p>智能水平全面<strong style="color:#fff">超越人类</strong>的 AI，具备自我改进能力。目前仅存在于科幻和理论讨论中。</p>
-        <span class="tag">理论阶段</span>
-      </div>
+      <div class="card"><div class="card-icon">🔧</div><h3>弱人工智能（ANI）</h3><p>只能完成<strong style="color:#fff">特定任务</strong>的 AI，是目前所有商业 AI 的类型。例如人脸识别、推荐算法、语音助手。</p><span class="tag">现阶段</span></div>
+      <div class="card"><div class="card-icon">🌐</div><h3>通用人工智能（AGI）</h3><p>拥有与人类相当的<strong style="color:#fff">综合智能</strong>，能够胜任任何认知任务。目前仍是研究目标，尚未实现。</p><span class="tag">未来目标</span></div>
+      <div class="card"><div class="card-icon">🚀</div><h3>超级人工智能（ASI）</h3><p>智能水平全面<strong style="color:#fff">超越人类</strong>的 AI，具备自我改进能力。目前仅存在于科幻和理论讨论中。</p><span class="tag">理论阶段</span></div>
     </div>
   </section>
 
-  <!-- ══ CORE CONCEPTS ══ -->
+  <!-- CORE CONCEPTS -->
   <section id="core-concepts">
     <h2 class="section-title">💡 核心概念速览</h2>
     <div class="grid-2 fade-in">
-      <div class="card">
-        <div class="card-icon">📈</div>
-        <h3>监督学习</h3>
-        <p>用<strong style="color:#fff">带标签的数据</strong>训练模型。就像老师批改作业——给机器看大量"题目+答案"，让它学会举一反三。</p>
-        <p style="margin-top:10px;font-size:0.85rem;color:#666">例：垃圾邮件分类、图像识别</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔎</div>
-        <h3>无监督学习</h3>
-        <p>用<strong style="color:#fff">无标签的数据</strong>训练模型，让机器自己发现规律和分组。</p>
-        <p style="margin-top:10px;font-size:0.85rem;color:#666">例：用户聚类分析、异常检测</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🎮</div>
-        <h3>强化学习</h3>
-        <p>通过<strong style="color:#fff">奖励与惩罚</strong>机制训练 AI，让它在不断试错中学会最优策略。</p>
-        <p style="margin-top:10px;font-size:0.85rem;color:#666">例：AlphaGo、游戏AI、机器人控制</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏗️</div>
-        <h3>神经网络</h3>
-        <p>模仿人脑神经元连接方式构建的计算模型，由<strong style="color:#fff">输入层、隐藏层、输出层</strong>组成。层数越多，能力越强。</p>
-        <p style="margin-top:10px;font-size:0.85rem;color:#666">深度学习 = 多层神经网络</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">⚠️</div>
-        <h3>过拟合 vs 欠拟合</h3>
-        <p><strong style="color:#fff">过拟合</strong>：模型死记硬背训练数据，泛化差。<strong style="color:#fff">欠拟合</strong>：模型太简单，连训练数据都学不好。</p>
-        <p style="margin-top:10px;font-size:0.85rem;color:#666">目标是找到"刚刚好"的平衡</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔀</div>
-        <h3>Transformer 架构</h3>
-        <p>2017 年提出的革命性模型架构，基于<strong style="color:#fff">注意力机制（Attention）</strong>，是 GPT、BERT 等大模型的基础。</p>
-        <p style="margin-top:10px;font-size:0.85rem;color:#666">彻底改变了 NLP 领域</p>
-      </div>
+      <div class="card"><div class="card-icon">📈</div><h3>监督学习</h3><p>用<strong style="color:#fff">带标签的数据</strong>训练模型。就像老师批改作业——给机器看大量"题目+答案"，让它学会举一反三。</p><p style="margin-top:10px;font-size:.85rem;color:#666">例：垃圾邮件分类、图像识别</p></div>
+      <div class="card"><div class="card-icon">🔎</div><h3>无监督学习</h3><p>用<strong style="color:#fff">无标签的数据</strong>训练模型，让机器自己发现规律和分组。</p><p style="margin-top:10px;font-size:.85rem;color:#666">例：用户聚类分析、异常检测</p></div>
+      <div class="card"><div class="card-icon">🎮</div><h3>强化学习</h3><p>通过<strong style="color:#fff">奖励与惩罚</strong>机制训练 AI，让它在不断试错中学会最优策略。</p><p style="margin-top:10px;font-size:.85rem;color:#666">例：AlphaGo、游戏AI、机器人控制</p></div>
+      <div class="card"><div class="card-icon">🏗️</div><h3>神经网络</h3><p>模仿人脑神经元连接方式构建的计算模型，由<strong style="color:#fff">输入层、隐藏层、输出层</strong>组成。层数越多，能力越强。</p><p style="margin-top:10px;font-size:.85rem;color:#666">深度学习 = 多层神经网络</p></div>
+      <div class="card"><div class="card-icon">⚠️</div><h3>过拟合 vs 欠拟合</h3><p><strong style="color:#fff">过拟合</strong>：模型死记硬背训练数据，泛化差。<strong style="color:#fff">欠拟合</strong>：模型太简单，连训练数据都学不好。</p><p style="margin-top:10px;font-size:.85rem;color:#666">目标是找到"刚刚好"的平衡</p></div>
+      <div class="card"><div class="card-icon">🔀</div><h3>Transformer 架构</h3><p>2017 年提出的革命性模型架构，基于<strong style="color:#fff">注意力机制（Attention）</strong>，是 GPT、BERT 等大模型的基础。</p><p style="margin-top:10px;font-size:.85rem;color:#666">彻底改变了 NLP 领域</p></div>
     </div>
   </section>
 
-  <!-- ══ HISTORY ══ -->
+  <!-- HISTORY -->
   <section id="history">
     <h2 class="section-title">📅 AI 发展历程</h2>
     <div class="timeline fade-in">
-      <div class="tl-item">
-        <div class="tl-year">1950</div>
-        <h4>图灵测试诞生</h4>
-        <p>艾伦·图灵提出"机器能思考吗？"，提出图灵测试作为衡量机器智能的标准。</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">1956</div>
-        <h4>AI 正式命名</h4>
-        <p>达特茅斯会议上，约翰·麦卡锡首次提出"人工智能"这一术语，标志着 AI 学科诞生。</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">1997</div>
-        <h4>深蓝击败国际象棋世界冠军</h4>
-        <p>IBM 的 Deep Blue 击败卡斯帕罗夫，是 AI 在复杂博弈领域的首次重大突破。</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2012</div>
-        <h4>深度学习爆发</h4>
-        <p>AlexNet 在 ImageNet 比赛中大幅领先，深度学习开始统治计算机视觉领域。</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2017</div>
-        <h4>Transformer 论文发布</h4>
-        <p>"Attention is All You Need" 论文发布，奠定了现代大语言模型的架构基础。</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2022</div>
-        <h4>ChatGPT 引爆 AI 浪潮</h4>
-        <p>OpenAI 发布 ChatGPT，上线 5 天用户突破 100 万，掀起全球 AI 应用热潮。</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2024+</div>
-        <h4>多模态大模型时代</h4>
-        <p>GPT-4o、Gemini、Claude 等多模态模型相继发布，AI 能力从文字扩展到图像、音频、视频。</p>
-      </div>
+      <div class="tl-item"><div class="tl-year">1950</div><h4>图灵测试诞生</h4><p>艾伦·图灵提出"机器能思考吗？"，提出图灵测试作为衡量机器智能的标准。</p></div>
+      <div class="tl-item"><div class="tl-year">1956</div><h4>AI 正式命名</h4><p>达特茅斯会议上，约翰·麦卡锡首次提出"人工智能"这一术语，标志着 AI 学科诞生。</p></div>
+      <div class="tl-item"><div class="tl-year">1997</div><h4>深蓝击败国际象棋世界冠军</h4><p>IBM 的 Deep Blue 击败卡斯帕罗夫，是 AI 在复杂博弈领域的首次重大突破。</p></div>
+      <div class="tl-item"><div class="tl-year">2012</div><h4>深度学习爆发</h4><p>AlexNet 在 ImageNet 比赛中大幅领先，深度学习开始统治计算机视觉领域。</p></div>
+      <div class="tl-item"><div class="tl-year">2017</div><h4>Transformer 论文发布</h4><p>"Attention is All You Need" 论文发布，奠定了现代大语言模型的架构基础。</p></div>
+      <div class="tl-item"><div class="tl-year">2022</div><h4>ChatGPT 引爆 AI 浪潮</h4><p>OpenAI 发布 ChatGPT，上线 5 天用户突破 100 万，掀起全球 AI 应用热潮。</p></div>
+      <div class="tl-item"><div class="tl-year">2024+</div><h4>多模态大模型时代</h4><p>GPT-4o、Gemini、Claude 等多模态模型相继发布，AI 能力从文字扩展到图像、音频、视频。</p></div>
     </div>
   </section>
 
-  <!-- ══ TECHNOLOGIES ══ -->
+  <!-- TECHNOLOGIES -->
   <section id="technologies">
     <h2 class="section-title">🛠️ 主流技术对比</h2>
     <div class="card fade-in" style="padding:0;overflow:hidden;">
       <table class="compare-table">
-        <thead>
-          <tr>
-            <th>技术</th>
-            <th>特点</th>
-            <th>代表模型/工具</th>
-            <th>适用场景</th>
-          </tr>
-        </thead>
+        <thead><tr><th>技术</th><th>特点</th><th>代表模型/工具</th><th>适用场景</th></tr></thead>
         <tbody>
-          <tr>
-            <td>大语言模型 (LLM)</td>
-            <td>理解和生成文本，具备推理能力</td>
-            <td>GPT-4、Claude、Gemini</td>
-            <td>对话、写作、代码、分析</td>
-          </tr>
-          <tr>
-            <td>扩散模型</td>
-            <td>通过去噪过程生成高质量图像</td>
-            <td>Stable Diffusion、DALL-E</td>
-            <td>图像生成、图像编辑</td>
-          </tr>
-          <tr>
-            <td>卷积神经网络 (CNN)</td>
-            <td>擅长提取图像空间特征</td>
-            <td>ResNet、VGG、EfficientNet</td>
-            <td>图像分类、目标检测</td>
-          </tr>
-          <tr>
-            <td>循环神经网络 (RNN/LSTM)</td>
-            <td>处理序列数据，有记忆能力</td>
-            <td>LSTM、GRU</td>
-            <td>时序预测、早期 NLP</td>
-          </tr>
-          <tr>
-            <td>强化学习 (RL)</td>
-            <td>通过交互和奖励持续优化策略</td>
-            <td>AlphaGo、OpenAI Five</td>
-            <td>游戏、机器人、自动驾驶</td>
-          </tr>
-          <tr>
-            <td>生成对抗网络 (GAN)</td>
-            <td>生成器与判别器博弈，生成逼真内容</td>
-            <td>StyleGAN、CycleGAN</td>
-            <td>人脸生成、风格迁移</td>
-          </tr>
+          <tr><td>大语言模型 (LLM)</td><td>理解和生成文本，具备推理能力</td><td>GPT-4、Claude、Gemini</td><td>对话、写作、代码、分析</td></tr>
+          <tr><td>扩散模型</td><td>通过去噪过程生成高质量图像</td><td>Stable Diffusion、DALL-E</td><td>图像生成、图像编辑</td></tr>
+          <tr><td>卷积神经网络 (CNN)</td><td>擅长提取图像空间特征</td><td>ResNet、VGG、EfficientNet</td><td>图像分类、目标检测</td></tr>
+          <tr><td>循环神经网络 (RNN/LSTM)</td><td>处理序列数据，有记忆能力</td><td>LSTM、GRU</td><td>时序预测、早期 NLP</td></tr>
+          <tr><td>强化学习 (RL)</td><td>通过交互和奖励持续优化策略</td><td>AlphaGo、OpenAI Five</td><td>游戏、机器人、自动驾驶</td></tr>
+          <tr><td>生成对抗网络 (GAN)</td><td>生成器与判别器博弈，生成逼真内容</td><td>StyleGAN、CycleGAN</td><td>人脸生成、风格迁移</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- ══ APPLICATIONS ══ -->
+  <!-- APPLICATIONS -->
   <section id="applications">
     <h2 class="section-title">🌍 AI 应用场景</h2>
     <div class="grid-3 fade-in">
-      <div class="card">
-        <div class="card-icon">🏥</div>
-        <h3>医疗健康</h3>
-        <p>医学影像诊断、辅助药物研发、基因组学分析、智能问诊系统。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🚗</div>
-        <h3>自动驾驶</h3>
-        <p>环境感知、路径规划、障碍物检测，代表：Tesla、Waymo。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📱</div>
-        <h3>智能推荐</h3>
-        <p>根据用户行为个性化推送内容，抖音、Netflix、淘宝均在使用。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">💻</div>
-        <h3>代码助手</h3>
-        <p>GitHub Copilot、Cursor 等工具帮助开发者自动补全、生成和调试代码。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🎨</div>
-        <h3>创意生成</h3>
-        <p>AI 绘画（Midjourney）、AI 音乐（Suno）、AI 视频（Sora）正在颠覆创意行业。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏭</div>
-        <h3>工业制造</h3>
-        <p>质检自动化、预测性维护、智能供应链优化，大幅降低生产成本。</p>
+      <div class="card"><div class="card-icon">🏥</div><h3>医疗健康</h3><p>医学影像诊断、辅助药物研发、基因组学分析、智能问诊系统。</p></div>
+      <div class="card"><div class="card-icon">🚗</div><h3>自动驾驶</h3><p>环境感知、路径规划、障碍物检测，代表：Tesla、Waymo。</p></div>
+      <div class="card"><div class="card-icon">📱</div><h3>智能推荐</h3><p>根据用户行为个性化推送内容，抖音、Netflix、淘宝均在使用。</p></div>
+      <div class="card"><div class="card-icon">💻</div><h3>代码助手</h3><p>GitHub Copilot、Cursor 等工具帮助开发者自动补全、生成和调试代码。</p></div>
+      <div class="card"><div class="card-icon">🎨</div><h3>创意生成</h3><p>AI 绘画（Midjourney）、AI 音乐（Suno）、AI 视频（Sora）正在颠覆创意行业。</p></div>
+      <div class="card"><div class="card-icon">🏭</div><h3>工业制造</h3><p>质检自动化、预测性维护、智能供应链优化，大幅降低生产成本。</p></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       🎮 INTERACTIVE GAMES SECTION
+  ══════════════════════════════════ -->
+  <section id="games">
+    <h2 class="section-title">🎮 互动小游戏</h2>
+    <p class="games-intro">动手玩一玩，理解更深刻！三个小游戏帮你巩固 AI 基础知识 👇</p>
+
+    <!-- ── GAME 1: QUIZ ── -->
+    <div class="card" style="margin-bottom:40px;">
+      <h3 style="margin-bottom:4px;">🧠 游戏一：AI 知识问答</h3>
+      <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:24px;">10 道题测测你学了多少，答对有解析！</p>
+      <div class="quiz-container" style="background:transparent;border:none;padding:0;max-width:100%;">
+        <div id="quizGame">
+          <div class="quiz-header">
+            <span class="quiz-progress-text" id="qProgressText">第 1 题 / 共 10 题</span>
+            <span class="quiz-score-badge">得分 <span id="qScore">0</span></span>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qProgressFill" style="width:10%"></div></div>
+          <div class="quiz-question" id="qQuestion"></div>
+          <div class="quiz-options" id="qOptions"></div>
+          <div class="quiz-feedback" id="qFeedback"></div>
+          <button class="quiz-next-btn" id="qNextBtn" onclick="nextQuestion()">下一题 →</button>
+        </div>
+        <div id="quizResult" style="display:none;" class="quiz-result">
+          <div class="big-score" id="qFinalScore"></div>
+          <p id="qResultMsg"></p>
+          <button class="quiz-restart-btn" onclick="restartQuiz()">🔄 再来一次</button>
+        </div>
       </div>
     </div>
+
+    <!-- ── GAME 2: CLASSIFICATION ── -->
+    <div class="card" style="margin-bottom:40px;">
+      <h3 style="margin-bottom:4px;">🏷️ 游戏二：模拟监督学习 — 图片分类</h3>
+      <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:24px;">你就是 AI！给图片打标签，体验监督学习数据标注的过程。</p>
+      <div class="cls-container" style="background:transparent;border:none;padding:0;max-width:100%;">
+        <div class="cls-question" id="clsQuestion">这张图片属于哪个类别？</div>
+        <div class="cls-image-area" id="clsImage"></div>
+        <div class="cls-buttons" id="clsButtons"></div>
+        <div class="cls-feedback" id="clsFeedback"></div>
+        <div class="cls-stats">
+          <div class="cls-stat"><span class="num" id="clsCorrect">0</span>答对</div>
+          <div class="cls-stat"><span class="num" id="clsTotal">0</span>已答</div>
+          <div class="cls-stat"><span class="num" id="clsAccuracy">--</span>准确率</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GAME 3: DRAG & DROP SORTING ── -->
+    <div class="card" style="margin-bottom:40px;">
+      <h3 style="margin-bottom:4px;">🗂️ 游戏三：概念分类挑战</h3>
+      <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:24px;">把下方的应用案例拖到正确的 AI 技术分类中！</p>
+      <div class="sort-container" style="background:transparent;border:none;padding:0;max-width:100%;">
+        <p class="sort-desc">📌 将下方卡片拖入对应的技术类别栏：</p>
+        <div class="sort-unplaced" id="sortUnplaced"></div>
+        <div class="sort-board">
+          <div class="sort-column">
+            <div class="sort-column-title ml">🤖 机器学习 (ML)</div>
+            <div class="sort-drop-zone" id="zone-ml" data-category="ml" ondragover="onDragOver(event)" ondrop="onDrop(event)" ondragleave="onDragLeave(event)"></div>
+          </div>
+          <div class="sort-column">
+            <div class="sort-column-title dl">🧠 深度学习 (DL)</div>
+            <div class="sort-drop-zone" id="zone-dl" data-category="dl" ondragover="onDragOver(event)" ondrop="onDrop(event)" ondragleave="onDragLeave(event)"></div>
+          </div>
+          <div class="sort-column">
+            <div class="sort-column-title nlp">💬 自然语言处理 (NLP)</div>
+            <div class="sort-drop-zone" id="zone-nlp" data-category="nlp" ondragover="onDragOver(event)" ondrop="onDrop(event)" ondragleave="onDragLeave(event)"></div>
+          </div>
+        </div>
+        <button class="sort-check-btn" onclick="checkSort()">✅ 检查答案</button>
+        <div class="sort-result" id="sortResult"></div>
+      </div>
+    </div>
+
+    <!-- ── GAME 4: NEURAL NETWORK VIZ ── -->
+    <div class="card">
+      <h3 style="margin-bottom:4px;">🕸️ 游戏四：神经网络可视化</h3>
+      <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:24px;">调整层数和神经元数量，实时观察神经网络结构的变化！</p>
+      <div class="nn-container" style="background:transparent;border:none;padding:0;max-width:100%;">
+        <div class="nn-controls">
+          <div class="nn-input-group">
+            <label>隐藏层数: <strong id="layerCount">2</strong></label>
+            <input type="range" class="nn-slider" id="layerSlider" min="1" max="5" value="2" oninput="updateNN()">
+          </div>
+          <div class="nn-input-group">
+            <label>每层神经元: <strong id="neuronCount">4</strong></label>
+            <input type="range" class="nn-slider" id="neuronSlider" min="2" max="8" value="4" oninput="updateNN()">
+          </div>
+          <div class="nn-input-group">
+            <label>输入特征数: <strong id="inputCount">3</strong></label>
+            <input type="range" class="nn-slider" id="inputSlider" min="2" max="6" value="3" oninput="updateNN()">
+          </div>
+        </div>
+        <canvas id="nnCanvas" height="280"></canvas>
+        <div class="nn-result">
+          <div class="nn-result-item">总层数: <span id="nnTotalLayers">4</span></div>
+          <div class="nn-result-item">参数量(约): <span id="nnParams">--</span></div>
+          <div class="nn-result-item">网络深度: <span id="nnDepth">中等</span></div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
 </main>
@@ -510,14 +381,322 @@
 </footer>
 
 <script>
-  // Scroll-triggered fade-in animation
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    }),
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+// ══════════════════════════════════════
+// GAME 1: QUIZ
+// ══════════════════════════════════════
+const quizData = [
+  { q: "AI 中的"机器学习"是指什么？", options: ["给机器人编程让它动起来", "让计算机从数据中自动学习规律", "用机器来替代人类劳动", "制造更快的计算机芯片"], answer: 1, explain: "机器学习的核心是让计算机从数据中自动"学习"规律，而不是手动编写规则。" },
+  { q: "下列哪项是"弱人工智能"（ANI）的例子？", options: ["能做任何工作的机器人", "抖音视频推荐算法", "科幻电影里的终结者", "具有自我意识的AI"], answer: 1, explain: "弱AI只能完成特定任务。抖音推荐算法只做"内容推荐"这一件事，是典型的弱AI。" },
+  { q: "Transformer 架构中最关键的机制叫什么？", options: ["卷积（Convolution）", "递归（Recursion）", "注意力机制（Attention）", "强化奖励（Reward）"], answer: 2, explain: '"Attention is All You Need" 论文提出了注意力机制，这是 Transformer 架构的核心，也是 GPT 等大模型的基础。' },
+  { q: "训练 AI 时，"过拟合"意味着什么？", options: ["模型太简单，什么都学不好", "模型太复杂，死记硬背训练数据，泛化差", "训练数据太少", "学习速度太慢"], answer: 1, explain: "过拟合指模型把训练数据记住了，但遇到新数据就不会了——就像只会背题不会举一反三。" },
+  { q: "AlphaGo 击败围棋冠军主要用了哪种 AI 技术？", options: ["监督学习", "规则引擎", "强化学习 + 深度学习", "简单的搜索算法"], answer: 2, explain: "AlphaGo 结合了强化学习（通过自我对弈不断进步）和深度学习（理解棋局状态），才达到了超人水平。" },
+  { q: "ChatGPT 属于哪类 AI 技术？", options: ["图像识别", "大语言模型（LLM）", "强化学习", "扩散模型"], answer: 1, explain: "ChatGPT 是基于 Transformer 架构的大语言模型（LLM），专门用于理解和生成文本。" },
+  { q: ""深度学习"中的"深度"指的是什么？", options: ["算法思考得很深入", "神经网络有很多层（多层 = 深度）", "需要很深的数学知识", "数据挖掘得很彻底"], answer: 1, explain: '"深度"指神经网络的层数多——多层堆叠让模型能学到越来越抽象的特征。' },
+  { q: "下列哪项属于"无监督学习"的应用？", options: ["垃圾邮件分类", "用户群体聚类分析", "图像识别", "语音转文字"], answer: 1, explain: "无监督学习没有标签，让模型自己发现规律。聚类分析就是把相似用户自动分到一组，无需人工标注。" },
+  { q: ""图灵测试"的目的是什么？", options: ["测试计算机的运算速度", "判断机器的智能是否达到人类水平", "测试神经网络的准确率", "评估 AI 的道德水平"], answer: 1, explain: "图灵测试由艾伦·图灵提出：如果人类无法分辨对话对象是人还是机器，则认为机器通过了测试。" },
+  { q: "Stable Diffusion 和 DALL-E 主要用了哪种技术？", options: ["卷积神经网络（CNN）", "循环神经网络（RNN）", "扩散模型", "强化学习"], answer: 2, explain: "这两者都是基于扩散模型（Diffusion Model）——通过逐步去除噪声来生成高质量图像。" }
+];
+
+let qIndex = 0, qScore = 0, qAnswered = false;
+
+function initQuiz() {
+  qIndex = 0; qScore = 0; qAnswered = false;
+  document.getElementById('quizGame').style.display = 'block';
+  document.getElementById('quizResult').style.display = 'none';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const d = quizData[qIndex];
+  document.getElementById('qProgressText').textContent = `第 ${qIndex+1} 题 / 共 ${quizData.length} 题`;
+  document.getElementById('qScore').textContent = qScore;
+  document.getElementById('qProgressFill').style.width = ((qIndex+1)/quizData.length*100) + '%';
+  document.getElementById('qQuestion').textContent = d.q;
+  const opts = document.getElementById('qOptions');
+  opts.innerHTML = '';
+  d.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    btn.textContent = `${['A','B','C','D'][i]}. ${opt}`;
+    btn.onclick = () => selectAnswer(i);
+    opts.appendChild(btn);
+  });
+  document.getElementById('qFeedback').className = 'quiz-feedback';
+  document.getElementById('qNextBtn').className = 'quiz-next-btn';
+  qAnswered = false;
+}
+
+function selectAnswer(i) {
+  if (qAnswered) return;
+  qAnswered = true;
+  const d = quizData[qIndex];
+  const btns = document.querySelectorAll('.quiz-option');
+  btns.forEach(b => b.disabled = true);
+  btns[d.answer].classList.add('correct');
+  const fb = document.getElementById('qFeedback');
+  if (i === d.answer) {
+    qScore++;
+    document.getElementById('qScore').textContent = qScore;
+    btns[i].classList.add('correct');
+    fb.className = 'quiz-feedback correct show';
+    fb.textContent = '✅ 正确！' + d.explain;
+  } else {
+    btns[i].classList.add('wrong');
+    fb.className = 'quiz-feedback wrong show';
+    fb.textContent = '❌ 答错了。' + d.explain;
+  }
+  document.getElementById('qNextBtn').className = 'quiz-next-btn show';
+}
+
+function nextQuestion() {
+  qIndex++;
+  if (qIndex >= quizData.length) {
+    document.getElementById('quizGame').style.display = 'none';
+    document.getElementById('quizResult').style.display = 'block';
+    document.getElementById('qFinalScore').textContent = `${qScore} / ${quizData.length}`;
+    const msgs = ['还需加油，多看看上面的知识点！🌱', '还不错，继续努力！💪', '学得很好，再来一次巩固！🌟', '太棒了！你已经掌握 AI 基础！🏆'];
+    const idx = qScore <= 3 ? 0 : qScore <= 6 ? 1 : qScore <= 8 ? 2 : 3;
+    document.getElementById('qResultMsg').textContent = msgs[idx];
+  } else {
+    renderQuestion();
+  }
+}
+
+function restartQuiz() { initQuiz(); }
+initQuiz();
+
+
+// ══════════════════════════════════════
+// GAME 2: CLASSIFICATION
+// ══════════════════════════════════════
+const clsItems = [
+  { emoji: '🐱', label: '动物', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🍕', label: '食物', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🚀', label: '交通工具', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🌲', label: '植物', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🐶', label: '动物', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🍔', label: '食物', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🚗', label: '交通工具', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🌸', label: '植物', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🦊', label: '动物', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🍜', label: '食物', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '✈️', label: '交通工具', options: ['动物', '食物', '交通工具', '植物'] },
+  { emoji: '🌻', label: '植物', options: ['动物', '食物', '交通工具', '植物'] },
+];
+let clsIdx = 0, clsCorrectCount = 0, clsTotalCount = 0;
+
+function shuffleArray(arr) { return [...arr].sort(() => Math.random() - .5); }
+
+function renderCls() {
+  const item = clsItems[clsIdx % clsItems.length];
+  document.getElementById('clsImage').textContent = item.emoji;
+  document.getElementById('clsQuestion').textContent = '这张图片属于哪个类别？';
+  document.getElementById('clsFeedback').textContent = '';
+  const btns = document.getElementById('clsButtons');
+  btns.innerHTML = '';
+  shuffleArray(item.options).forEach(opt => {
+    const b = document.createElement('button');
+    b.className = 'cls-btn';
+    b.textContent = opt;
+    b.onclick = () => checkCls(b, opt, item.label, btns);
+    btns.appendChild(b);
+  });
+}
+
+function checkCls(btn, selected, correct, container) {
+  Array.from(container.children).forEach(b => b.disabled = true);
+  clsTotalCount++;
+  const fb = document.getElementById('clsFeedback');
+  if (selected === correct) {
+    btn.classList.add('correct-answer');
+    clsCorrectCount++;
+    fb.style.color = 'var(--green)';
+    fb.textContent = '✅ 正确！就像给 AI 训练数据打标签一样！';
+  } else {
+    btn.classList.add('wrong-answer');
+    Array.from(container.children).forEach(b => { if (b.textContent === correct) b.classList.add('correct-answer'); });
+    fb.style.color = 'var(--red)';
+    fb.textContent = `❌ 应该是"${correct}"，AI 会从你的纠正中学习！`;
+  }
+  document.getElementById('clsCorrect').textContent = clsCorrectCount;
+  document.getElementById('clsTotal').textContent = clsTotalCount;
+  document.getElementById('clsAccuracy').textContent = Math.round(clsCorrectCount / clsTotalCount * 100) + '%';
+  clsIdx++;
+  setTimeout(renderCls, 1600);
+}
+renderCls();
+
+
+// ══════════════════════════════════════
+// GAME 3: DRAG & DROP SORT
+// ══════════════════════════════════════
+const sortItems = [
+  { id: 's1', text: '🎮 AlphaGo 下围棋', category: 'dl' },
+  { id: 's2', text: '📧 垃圾邮件过滤', category: 'ml' },
+  { id: 's3', text: '💬 ChatGPT 对话', category: 'nlp' },
+  { id: 's4', text: '🖼️ 人脸识别解锁', category: 'dl' },
+  { id: 's5', text: '📊 用户行为预测', category: 'ml' },
+  { id: 's6', text: '🌐 机器翻译', category: 'nlp' },
+  { id: 's7', text: '🚗 自动驾驶感知', category: 'dl' },
+  { id: 's8', text: '💡 推荐系统', category: 'ml' },
+  { id: 's9', text: '📝 文章摘要生成', category: 'nlp' },
+];
+
+let draggedId = null;
+
+function initSort() {
+  const unplaced = document.getElementById('sortUnplaced');
+  unplaced.innerHTML = '';
+  shuffleArray(sortItems).forEach(item => {
+    const el = document.createElement('div');
+    el.className = 'sort-item';
+    el.id = item.id;
+    el.textContent = item.text;
+    el.draggable = true;
+    el.dataset.category = item.category;
+    el.ondragstart = (e) => { draggedId = item.id; e.dataTransfer.effectAllowed = 'move'; };
+    unplaced.appendChild(el);
+  });
+  ['zone-ml','zone-dl','zone-nlp'].forEach(id => document.getElementById(id).innerHTML = '');
+  document.getElementById('sortResult').textContent = '';
+}
+
+function onDragOver(e) { e.preventDefault(); e.currentTarget.classList.add('drag-over'); }
+function onDragLeave(e) { e.currentTarget.classList.remove('drag-over'); }
+function onDrop(e) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  if (!draggedId) return;
+  const el = document.getElementById(draggedId);
+  if (el) e.currentTarget.appendChild(el);
+  draggedId = null;
+}
+
+function checkSort() {
+  let correct = 0, total = 0;
+  sortItems.forEach(item => {
+    const el = document.getElementById(item.id);
+    const parent = el ? el.parentElement : null;
+    if (parent && parent.dataset.category) {
+      total++;
+      if (parent.dataset.category === item.category) {
+        el.classList.remove('placed-wrong');
+        el.classList.add('placed-correct');
+        correct++;
+      } else {
+        el.classList.remove('placed-correct');
+        el.classList.add('placed-wrong');
+      }
+    }
+  });
+  const res = document.getElementById('sortResult');
+  if (total === 0) { res.textContent = '⚠️ 请先拖动一些卡片再检查！'; res.style.color = 'var(--yellow)'; return; }
+  if (correct === sortItems.length) {
+    res.style.color = 'var(--green)';
+    res.textContent = `🎉 全部正确！你已经掌握了 ML / DL / NLP 的区别！`;
+  } else {
+    res.style.color = 'var(--yellow)';
+    res.textContent = `✅ ${correct} / ${sortItems.length} 正确，标红的需要重新归类，继续加油！`;
+  }
+}
+initSort();
+
+
+// ══════════════════════════════════════
+// GAME 4: NEURAL NETWORK VISUALIZATION
+// ══════════════════════════════════════
+function updateNN() {
+  const layers = +document.getElementById('layerSlider').value;
+  const neurons = +document.getElementById('neuronSlider').value;
+  const inputs = +document.getElementById('inputSlider').value;
+  document.getElementById('layerCount').textContent = layers;
+  document.getElementById('neuronCount').textContent = neurons;
+  document.getElementById('inputCount').textContent = inputs;
+
+  const totalLayers = inputs > 0 ? layers + 2 : layers + 1;
+  document.getElementById('nnTotalLayers').textContent = totalLayers;
+  document.getElementById('nnDepth').textContent = layers <= 2 ? '浅层网络' : layers <= 3 ? '中等深度' : '深层网络';
+
+  // param count (simplified)
+  let params = inputs * neurons;
+  for (let i = 1; i < layers; i++) params += neurons * neurons;
+  params += neurons * 1;
+  document.getElementById('nnParams').textContent = params > 1000 ? (params/1000).toFixed(1) + 'K' : params;
+
+  drawNN(inputs, layers, neurons);
+}
+
+function drawNN(inputs, hiddenLayers, neurons) {
+  const canvas = document.getElementById('nnCanvas');
+  const W = canvas.offsetWidth || 700;
+  canvas.width = W;
+  canvas.height = 280;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, W, 280);
+
+  const allLayers = [inputs, ...Array(hiddenLayers).fill(neurons), 1];
+  const totalCols = allLayers.length;
+  const colW = W / totalCols;
+  const H = 280;
+
+  const getPos = (col, row, total) => ({
+    x: colW * col + colW / 2,
+    y: H / 2 + (row - (total - 1) / 2) * Math.min(40, (H - 40) / total)
+  });
+
+  // Draw connections
+  for (let c = 0; c < totalCols - 1; c++) {
+    for (let r = 0; r < allLayers[c]; r++) {
+      for (let r2 = 0; r2 < allLayers[c+1]; r2++) {
+        const p1 = getPos(c, r, allLayers[c]);
+        const p2 = getPos(c+1, r2, allLayers[c+1]);
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = 'rgba(108,99,255,0.18)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Draw nodes
+  allLayers.forEach((count, col) => {
+    const isInput = col === 0, isOutput = col === totalCols - 1;
+    const color = isInput ? '#00d4ff' : isOutput ? '#f50057' : '#6c63ff';
+    for (let r = 0; r < count; r++) {
+      const { x, y } = getPos(col, r, count);
+      ctx.beginPath();
+      ctx.arc(x, y, 10, 0, Math.PI * 2);
+      ctx.fillStyle = color + '33';
+      ctx.fill();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+  });
+
+  // Labels
+  ctx.fillStyle = 'rgba(255,255,255,.5)';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('输入层', colW / 2, 20);
+  for (let i = 0; i < hiddenLayers; i++) ctx.fillText(`隐藏层 ${i+1}`, colW * (i+1) + colW/2, 20);
+  ctx.fillText('输出层', W - colW / 2, 20);
+}
+
+updateNN();
+
+// ══════════════════════════════════════
+// SCROLL ANIMATION
+// ══════════════════════════════════════
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+window.addEventListener('resize', updateNN);
 </script>
 </body>
 </html>
