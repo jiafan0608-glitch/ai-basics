@@ -462,7 +462,6 @@ function nextQuestion() {
 }
 
 function restartQuiz() { initQuiz(); }
-initQuiz();
 
 
 // ══════════════════════════════════════
@@ -523,9 +522,6 @@ function checkCls(btn, selected, correct, container) {
   clsIdx++;
   setTimeout(renderCls, 1600);
 }
-renderCls();
-
-
 // ══════════════════════════════════════
 // GAME 3: DRAG & DROP SORT
 // ══════════════════════════════════════
@@ -598,9 +594,6 @@ function checkSort() {
     res.textContent = `✅ ${correct} / ${sortItems.length} 正确，标红的需要重新归类，继续加油！`;
   }
 }
-initSort();
-
-
 // ══════════════════════════════════════
 // GAME 4: NEURAL NETWORK VISUALIZATION
 // ══════════════════════════════════════
@@ -684,9 +677,13 @@ function drawNN(inputs, hiddenLayers, neurons) {
   ctx.fillText('输出层', W - colW / 2, 20);
 }
 
-updateNN();
-
 window.addEventListener('resize', updateNN);
+
+// Script is at end of body, DOM is already ready - call directly
+initQuiz();
+renderCls();
+initSort();
+updateNN();
 </script>
 </body>
 </html>
