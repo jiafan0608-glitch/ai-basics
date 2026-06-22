@@ -159,9 +159,8 @@
     .sort-check-btn:hover { opacity: .85; }
     .sort-result { margin-top: 14px; font-size: 0.9rem; }
 
-    /* FADE IN */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s, transform .5s; }
-    .fade-in.visible { opacity: 1; transform: none; }
+    /* FADE IN - always visible, animation is a bonus */
+    .fade-in { opacity: 1; transform: none; transition: opacity .5s, transform .5s; }
 
     /* FOOTER */
     footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--card-border); }
@@ -686,15 +685,6 @@ function drawNN(inputs, hiddenLayers, neurons) {
 }
 
 updateNN();
-
-// ══════════════════════════════════════
-// SCROLL ANIMATION
-// ══════════════════════════════════════
-const observer = new IntersectionObserver(
-  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-  { threshold: 0.1 }
-);
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 window.addEventListener('resize', updateNN);
 </script>
